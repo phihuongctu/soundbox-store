@@ -36,7 +36,7 @@ export const LanguageSelectMenu: React.FC<LanngProps> = ({ hiddenDesktop }) => {
             <button
                 onMouseEnter={() => setIsMenuOpen(true)}
                 onMouseLeave={() => setIsMenuOpen(false)}
-                className={`${hiddenDesktop ? 'pb-5' : ''} inline-flex justify-center items-center px-4 py-2  shadow-sm text-sm font-normal rounded-md text-gray-700 bg-white  focus:outline-none `}
+                className={`${hiddenDesktop ? 'pb-5' : ''} inline-flex justify-center items-center px-4 py-2 text-sm font-normal rounded-md text-gray-700 bg-white  focus:outline-none `}
             >
                 <img src={`/icons/${selectedLanguage}-flag.svg`} className='mr-1 object-cover rounded-full w-5 h-5' alt="Flag" />
                 {languages.find(lang => lang.code === selectedLanguage)?.shortName || 'Select Language'}
@@ -46,7 +46,7 @@ export const LanguageSelectMenu: React.FC<LanngProps> = ({ hiddenDesktop }) => {
                 <div
                     onMouseEnter={() => setIsMenuOpen(true)}
                     onMouseLeave={() => setIsMenuOpen(false)}
-                    className="origin-top-right relative md:absolute right-4  m-auto md:w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                    className="origin-top-right left-0 relative md:absolute right-4  m-auto md:w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
                 >
                     <div className="py-5" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         {languages.map(lang => (
