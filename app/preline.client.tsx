@@ -23,8 +23,15 @@ export default function PrelineScript() {
 
     useEffect(() => {
         setTimeout(() => {
-            window.HSStaticMethods.autoInit();
-        }, 200);
+            if (isBrowser) {
+                // if this component is rendered on a browser, import relevant preline plugins
+                import("preline/preline").then(({ HSAccordion, HSDropdown, HSCollapse }) => {
+                    HSAccordion.autoInit();
+                    HSDropdown.autoInit();
+                    HSCollapse.autoInit();
+                })
+            }
+        }, 100);
     }, [location.pathname]);
 
     return null;
