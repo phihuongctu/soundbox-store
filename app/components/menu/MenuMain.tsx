@@ -26,18 +26,18 @@ export const Menu: React.FC<MenuProps> = ({ menuData }) => {
 
     const renderMenu = (menuItems: MenuItem[]) => {
         return menuItems.map((menuItem, index) => (
-            <div key={index} className={`${menuItem.mobileHidden ? 'hidden md:block' : ''} hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] py-3 md:py-4`}>
+            <div key={index} className={`${menuItem.mobileHidden ? 'hidden lg:block' : ''} hs-dropdown [--strategy:static] lg:[--strategy:absolute] [--adaptive:none] lg:[--trigger:hover] py-3 lg:py-4`}>
                 <a
                     href={menuItem.link}
-                    className="text-primary text-sm font-semibold uppercase tracking-[2px] py-3 md:py-6 hover:underline hover:decoration-2"
+                    className="text-primary text-sm font-semibold uppercase tracking-[2px] py-3 lg:py-6 hover:underline hover:decoration-2"
                     aria-current="page"
                 >
                     {menuItem.title}
                 </a>
 
                 {menuItem.submenu && menuItem.submenu.length > 0 && menuItem.type === 'mega' && (
-                    <div className='hs-dropdown-menu menu pt-10 top-full transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 md:top-[77%] start-0 min-w-60 bg-white py-2 md:p-4 md:pt-10 before:absolute before:-top-5 before:start-0 before:w-full before:h-5'>
-                        <div className='page-width md:grid md:grid-cols-2 lg:grid-cols-5 gap-8 font-medium text-xl text-primary pb-48 px-4 md:px-16'>
+                    <div className='hs-dropdown-menu menu pt-10 top-full transition-[opacity,margin] duration-[0.1ms] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 lg:top-[77%] start-0 min-w-60 bg-white py-2 lg:p-4 lg:pt-10 before:absolute before:-top-5 before:start-0 before:w-full before:h-5'>
+                        <div className='page-width lg:grid md:grid-cols-2 lg:grid-cols-5 gap-8 font-medium text-xl text-primary pb-48 px-4 lg:px-16'>
                             {renderSubMenu(menuItem.submenu)}
                         </div>
                         <div className="text-center text-paragraph opacity-80 font-body">
@@ -47,9 +47,9 @@ export const Menu: React.FC<MenuProps> = ({ menuData }) => {
                 )}
 
                 {menuItem.submenu && menuItem.submenu.length > 0 && menuItem.type === 'default' && (
-                    <div className={`hs-dropdown-menu menu-${menuItem.type} pt-6 transition-[opacity,margin] duration-[0.1ms] md:top-[90%] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 hidden z-10 bg-white py-2 md:mb-0 before:absolute before:-top-5 before:start-0 before:w-full before:h-5`}>
-                        <div className="flex flex-col mx-1 md:mx-0">
-                            <div className="font-normal text-base text-paragraph md:px-9">
+                    <div className={`hs-dropdown-menu menu-${menuItem.type} pt-6 transition-[opacity,margin] duration-[0.1ms] lg:top-[90%] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 hidden z-10 bg-white py-2 lg:mb-0 before:absolute before:-top-5 before:start-0 before:w-full before:h-5`}>
+                        <div className="flex flex-col mx-1 lg:mx-0">
+                            <div className="font-normal text-base text-paragraph lg:px-9">
                                 {renderSubMenu(menuItem.submenu)}
                             </div>
                         </div>

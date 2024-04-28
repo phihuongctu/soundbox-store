@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 const SlideshowItem: React.FC<{ item: { label: string; link?: string }; isActive: boolean }> = ({ item, isActive }) => {
     return (
-        <div className={`slide text-primary tracking-[2px] text-[13px] font-body font-normal md:text-sm ${isActive ? 'active' : ''}`}>
+        <div className={`slide text-primary tracking-[2px] text-[13px] font-body font-normal lg:text-sm ${isActive ? 'active' : ''}`}>
             {item.link ? (
                 <a className='underline underline-offset-2' href={item.link}>{item.label}</a>
             ) : item.label}
@@ -29,7 +29,7 @@ const Slideshow: React.FC = () => {
     }, []);
 
     return (
-        <div className="slideshow md:hidden">
+        <div className="slideshow lg:hidden">
             {items.map((item, index) => (
                 <SlideshowItem key={index} item={item} isActive={index === currentIndex} />
             ))}
@@ -42,10 +42,10 @@ const TopBar: React.FC = () => {
     return (
         <div className="top-bar py-3 border-b border-solid border-primary_opacity_015 uppercase ">
             <Slideshow />
-            <div className="page-width hidden md:flex items-center justify-between px-4 md:px-10">
-                <div className="phone text-primary tracking-[2px] text-xs md:text-sm"><a href="tel:+44 (0) 20 4586 3800">{t("phone")}</a></div>
-                <div className="text-primary tracking-[2px] text-xs md:text-sm"><a href="/login">{t("login")}</a></div>
-                <div className="text-primary tracking-[2px] text-xs md:text-sm">{t("delivery")}</div>
+            <div className="page-width hidden lg:flex items-center justify-between px-4 lg:px-10">
+                <div className="phone text-primary tracking-[2px] text-xs lg:text-sm"><a href="tel:+44 (0) 20 4586 3800">{t("phone")}</a></div>
+                <div className="text-primary tracking-[2px] text-xs lg:text-sm"><a href="/login">{t("login")}</a></div>
+                <div className="text-primary tracking-[2px] text-xs lg:text-sm">{t("delivery")}</div>
             </div>
         </div>
     );

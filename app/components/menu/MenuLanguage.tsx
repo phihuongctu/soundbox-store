@@ -32,7 +32,7 @@ export const LanguageSelectMenu: React.FC<LanngProps> = ({ hiddenDesktop }) => {
     };
 
     return (
-        <div className={`${hiddenDesktop ? 'block md:hidden p-1 mb-4 w-full' : 'hidden md:block'}`} >
+        <div className={`${hiddenDesktop ? 'block lg:hidden p-1 mb-4 w-full' : 'hidden lg:block'}`} >
             <button
                 onMouseEnter={() => setIsMenuOpen(true)}
                 onMouseLeave={() => setIsMenuOpen(false)}
@@ -46,7 +46,7 @@ export const LanguageSelectMenu: React.FC<LanngProps> = ({ hiddenDesktop }) => {
                 <div
                     onMouseEnter={() => setIsMenuOpen(true)}
                     onMouseLeave={() => setIsMenuOpen(false)}
-                    className="origin-top-right left-0 relative md:absolute right-4  m-auto md:w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                    className="origin-top-right left-0 lg:left-auto relative lg:absolute right-4  m-auto lg:w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
                 >
                     <div className="py-5" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         {languages.map(lang => (

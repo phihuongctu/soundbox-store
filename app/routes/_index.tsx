@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <LayoutMain>
-        <img className="md:block object-cover w-full h-auto md:h-[600px]" src={Banner} alt="" />
+        <img className="lg:block object-cover w-full h-auto lg:h-[600px]" src={Banner} alt="" />
         <main>
           <Outlet />
         </main>
