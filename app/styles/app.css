@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Banana Grotesk";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/banana-grotesk/banana-grotesk-semibold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Banana Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/banana-grotesk/banana-grotesk-medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Banana Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/banana-grotesk/banana-grotesk-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/helvetica-neue/HelveticaNeueRoman.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/helvetica-neue/HelveticaNeueBold.otf") format("opentype");
+}
+
+body {
+  @apply font-heading;
+  font-weight: 400;
+}
+
+.page-width {
+  @apply max-w-screen-3xl;
+  margin: 0 auto;
+}
+
+.submenu-2 a {
+  font-family: "Helvetica Neue";
+}
+
+.menu-thumbnail {
+  position: absolute;
+  bottom: 2rem;
+}
+.menu-thumbnail.thumbnail-1 {
+  z-index: -1;
+  display: block;
+}
+
+.menu-default .menu-item {
+  margin-bottom: 0.75rem;
+}
+
+.icon-hamburger path {
+  stroke-width: 4px;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-linecap: miter;
+  stroke-linejoin: miter;
+}
+
+/* top bar mobile */
+.slideshow {
+  overflow: hidden;
+  height: 20px;
+  position: relative;
+}
+
+.slide {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.slideshow .slide:not(.active) {
+  position: relative;
+}
+
+/* menu mobile */
+.hs-collapse-toggle path {
+  transition: all 0.3s cubic-bezier(0.18, 0.77, 0.58, 1);
+}
+
+.hs-collapse-toggle.open path:first-child {
+  transform: rotate(45deg);
+  transform-origin: 20% 30%;
+}
+.hs-collapse-toggle.open path:nth-child(2) {
+  opacity: 0;
+}
+.hs-collapse-toggle.open path:nth-child(3) {
+  transform: rotate(-45deg);
+  transform-origin: 15% 66%;
+}
+.has-sub.hs-dropdown {
+  flex-direction: column;
+  align-items: self-start;
+}
+.has-sub.hs-dropdown > a {
+  width: 100%;
+  position: relative;
+}
+
+.has-sub.hs-dropdown > a::before {
+  transition: all 0.2s ease-in-out;
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  right: 20px;
+  border-bottom: 2px solid #454545;
+  top: 4px;
+  border-left: 2px solid #454545;
+  transform: rotate(-45deg);
+}
+
+.has-sub.hs-dropdown.open > a::before {
+  transform: rotate(140deg);
+}
