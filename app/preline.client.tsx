@@ -9,18 +9,22 @@ declare global {
         HSStaticMethods: IStaticMethods;
     }
 }
+const isBrowser = typeof window !== "undefined";
 
 export default function PrelineScript() {
     const location = useLocation();
 
     useEffect(() => {
-        import("preline/preline");
-    }, []);
+        if (isBrowser) {
+            // if this component is rendered on a browser, import preline
+            import("preline/preline");
+        }
+    }, [])
 
     useEffect(() => {
         setTimeout(() => {
             window.HSStaticMethods.autoInit();
-        }, 200);
+        }, 50);
     }, [location.pathname]);
 
     return null;
