@@ -1,4 +1,6 @@
 import React from 'react';
+import { SUB_MENU_LENGTH_0 } from '~/utils/constant';
+
 interface MenuItem {
     link: string;
     title: string;
@@ -16,7 +18,7 @@ export const MenuMobile: React.FC<MenuProps> = ({ menuData, hiddenDesktop }) => 
 
     const renderMenu = (menuItems: MenuItem[]) => {
         return menuItems.map((menuItem, index) => (
-            <div key={index} className={`${hiddenDesktop ? 'flex justify-between items-center gap-2 lg:hidden' : ''} ${menuItem.submenu && menuItem.submenu.length > 0 ? 'has-sub' : ''} hs-dropdown border-b border-solid border-primary_opacity_015 [--strategy:static] lg:[--strategy: absolute] [--adaptive:none] lg:[--trigger:hover] py-5 lg:py-5`} >
+            <div key={index} className={`${hiddenDesktop ? 'flex justify-between items-center gap-2 lg:hidden' : ''} ${menuItem.submenu && menuItem.submenu.length > SUB_MENU_LENGTH_0 ? 'has-sub' : ''} hs-dropdown border-b border-solid border-primary_opacity_015 [--strategy:static] lg:[--strategy: absolute] [--adaptive:none] lg:[--trigger:hover] py-5 lg:py-5`} >
                 <a
                     href={menuItem.link}
                     className="text-paragraph text-sm font-semibold uppercase tracking-[2px] lg:py-6 hover:underline hover:decoration-2"
@@ -26,7 +28,7 @@ export const MenuMobile: React.FC<MenuProps> = ({ menuData, hiddenDesktop }) => 
                 {menuItem.icon && <img src={menuItem.icon} className='mr-4' alt="Cart" />}
 
                 {/* sub menu */}
-                {menuItem.submenu && menuItem.submenu.length > 0 && (
+                {menuItem.submenu && menuItem.submenu.length > SUB_MENU_LENGTH_0 && (
                     <div
                         className='hs-dropdown-menu menu pt-2 top-full transition-[opacity,margin] duration-[0.1ms] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 lg:top-[77%] start-0 min-w-60 bg-white  lg:p-4 lg:pt-10 before:absolute before:-top-5 before:start-0 before:w-full before:h-5`'
                     >

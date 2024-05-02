@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SUB_MENU_LENGTH_0 } from '~/utils/constant';
 
 interface MenuItem {
     link: string;
@@ -15,6 +16,9 @@ interface MenuProps {
 
 export const Menu: React.FC<MenuProps> = ({ menuData }) => {
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+    const MenuTypeMega = 'mega';
+    const MenuTypeDefault = 'default';
 
     const handleMouseEnter = (title: string) => {
         setHoveredItem(title);
@@ -35,7 +39,7 @@ export const Menu: React.FC<MenuProps> = ({ menuData }) => {
                     {menuItem.title}
                 </a>
 
-                {menuItem.submenu && menuItem.submenu.length > 0 && menuItem.type === 'mega' && (
+                {menuItem.submenu && menuItem.submenu.length > SUB_MENU_LENGTH_0 && menuItem.type === MenuTypeMega && (
                     <div className='hs-dropdown-menu menu pt-10 top-full transition-[opacity,margin] duration-[0.1ms] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 lg:top-[77%] start-0 min-w-60 bg-white py-2 lg:p-4 lg:pt-10 before:absolute before:-top-5 before:start-0 before:w-full before:h-5'>
                         <div className='page-width lg:grid md:grid-cols-2 lg:grid-cols-5 gap-8 font-medium text-xl text-primary pb-48 px-4 lg:px-16'>
                             {renderSubMenu(menuItem.submenu)}
@@ -46,7 +50,7 @@ export const Menu: React.FC<MenuProps> = ({ menuData }) => {
                     </div>
                 )}
 
-                {menuItem.submenu && menuItem.submenu.length > 0 && menuItem.type === 'default' && (
+                {menuItem.submenu && menuItem.submenu.length > SUB_MENU_LENGTH_0 && menuItem.type === MenuTypeDefault && (
                     <div className={`hs-dropdown-menu menu-${menuItem.type} pt-6 transition-[opacity,margin] duration-[0.1ms] lg:top-[90%] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 hidden z-10 bg-white py-2 lg:mb-0 before:absolute before:-top-5 before:start-0 before:w-full before:h-5`}>
                         <div className="flex flex-col mx-1 lg:mx-0">
                             <div className="font-normal text-base text-paragraph lg:px-9">
@@ -77,7 +81,7 @@ export const Menu: React.FC<MenuProps> = ({ menuData }) => {
                         />
                     )}
                 </div>
-                {subItem.submenu && subItem.submenu.length > 0 && (
+                {subItem.submenu && subItem.submenu.length > SUB_MENU_LENGTH_0 && (
                     <div className="text-sm capitalize text-paragraph opacity-70 mb-3 ">
                         {renderSubMenu(subItem.submenu, level + 1)}
                     </div>
